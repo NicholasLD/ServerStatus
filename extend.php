@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace NicholasLD\\ServerStatus;
+namespace NicholasLD\ServerStatus;
 
 use Flarum\Extend;
 
