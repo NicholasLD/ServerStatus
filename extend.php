@@ -14,9 +14,10 @@ namespace NicholasLD\\ServerStatus;
 use Flarum\Extend;
 
 return [
-    
+
     (new Extend\Frontend('admin'))
-        ->js(__DIR__.'/js/dist/admin.js')
+        ->js(__DIR__.'/js/dist/admin.js'),
+        ->js(__DIR__.'/js/dist/forum.js'),
         ->css(__DIR__.'/less/admin.less'),
-    
+
 ];
