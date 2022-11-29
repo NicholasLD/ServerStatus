@@ -22,6 +22,5 @@ return [
     (new Extend\Frontend('forum'))
         ->js(__DIR__.'/js/dist/forum.js')
         ->css(__DIR__.'/less/forum.less')
-        ->route('/serverstatus', 'serverstatus', Content\ServerStatus::class),
-
+        ->route('/serverstatus', 'nicholasld_serverstatus', Content\ServerStatus::class),
 ];

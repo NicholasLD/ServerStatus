@@ -1,5 +1,11 @@
-import app from 'flarum/admin/app';
+import app from 'flarum/forum/app';
+import ServerStatusPage from 'flarum/forum';
 
-app.initializers.add('nicholasld/serverstatus', () => {
-  console.log('[nicholasld/serverstatus] Hello, admin!');
+export { ServerStatusPage };
+
+app.initializers.add('nicholasld_serverstatus', (app) => {
+  app.routes.fof_user_directory = {
+    path: '/serverstatus',
+    component: ServerStatusPage,
+  };
 });
