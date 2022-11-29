@@ -14,6 +14,8 @@ namespace NicholasLD\ServerStatus;
 use Flarum\Extend;
 
 return [
+    (new Extend\View)
+        ->namespace('serverstatus::index', __DIR__.'/resources/views'),
     (new Extend\Frontend('admin'))
         ->js(__DIR__.'/js/dist/admin.js')
         ->css(__DIR__.'/less/admin.less'),
