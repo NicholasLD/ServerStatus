@@ -37,7 +37,7 @@ class ServerStatus
     //添加到页面
     public function __invoke(Document $document)
     {
-        $document->head[] = $this->view->make('serverstatus::index');
+        $document->content = $this->view->make('nicholasld.serverstatus::index');
     }
 
 }
