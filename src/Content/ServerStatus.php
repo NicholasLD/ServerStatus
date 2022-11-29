@@ -13,13 +13,32 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class ServerStatus
 {
-    public function __invoke(Document $document, Request $request): Document
+    //加载模板
+    protected $view;
+
+    //翻译
+    protected $translator;
+
+    //设置
+    protected $settings;
+
+    //API客户端
+    protected $api;
+
+    //injected
+    public function __construct(Factory $view, TranslatorInterface $translator, SettingsRepositoryInterface $settings, Client $api)
     {
-        //加载index.blade.php
-        $document->content = app(Factory::class)->make('serverstatus::index')->render();
-
-
-
-        return $document;
+        $this->view = $view;
+        $this->translator = $translator;
+        $this->settings = $settings;
+        $this->api = $api;
     }
+
+    //添加到页面
+    public function __invoke(Document $document)
+    {
+        $document->head[] = $this->view->make('serverstatus::head');
+        $document->foot[] = $this->view->make('serverstatus::foot');
+    }
+
 }
