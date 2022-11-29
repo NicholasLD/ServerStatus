@@ -15,8 +15,11 @@ class ServerStatus
 {
     public function __invoke(Document $document, Request $request): Document
     {
-        //加载页面Helloworld
-        $document->content = '<div id="server-status">Hello</div>';
+        //加载index.blade.php
+        $document->content = app(Factory::class)->make('serverstatus::index')->render();
+
+
+
         return $document;
     }
 }
